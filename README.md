@@ -92,6 +92,52 @@ The following are the main methods used in the `Graph` class used to store the n
 ```
 Additional details of all these methods are present as docstrings in the `Graph` class
 
+**3. Visualization Design:**
 
+Developed the network graph using D3.js.
+- The size of each node is commensurate with the number of highly rated movies (vote_average >= 8.0) the actor has starred in.
+- The weight of each edge is commensurate with the number of times two actors have co-starred in a movie together.
+- Incorporated interactive features for enhanced user experience.
+The entire code D3 can be found in the index.html file
 
+**4. Deployment:**
+Integrated the visualization within an HTML page for seamless access.
+Structured the project for easy setup and replication.
+
+## Setup Instructions
+Follow these steps to run the Project
+**1. Clone the Respository**
+```bash
+git clone https://github.com/asyed79gatech/Coactor-Network-Graph.git
+cd Coactor-Network-Graph
+
+```
+**2. Prepare and Launch the Envionment**
+```bash
+source graph/bin/activate
+```
+**3. Generate/Update the data**
+```python
+python3 main.py
+```
+**4. Create an HTTP Port to view the network graph**
+```bash
+python -m http.server
+open index.html
+```
+**5. Explore the network**
+Interact with the visualization to analyze relationships, view detailed information, and adjust the layout.
+
+## Project Structure
+```bash
+├── main.py         # Python script for data collection and preprocessing.
+├── graph.py         # Python script for Graph class.
+├── tmdb_api.py         # Python script for TMDBAPIUtils class.
+├── index.html           # HTML file containing the D3.js visualization code.
+├── graph.json           # JSON file representing nodes and links (generated).
+├── nodes.csv         # csv file created to look at the nodes in the graph.
+├── edges.csv         # csv file created to look at the edges in the graph.
+├── README.md            # Project documentation.
+
+```
 
