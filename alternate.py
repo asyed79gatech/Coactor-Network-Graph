@@ -8,33 +8,20 @@ from collections import defaultdict
 
 #############################################################################################################################
 #
-# All instructions, code comments, etc. contained within this notebook are part of the assignment instructions.
-# Portions of this file will auto-graded in Gradescope using different sets of parameters / data to ensure that values are not
-# hard-coded.
-#
-# Instructions:  Implement all methods in this file that have a return
-# value of 'NotImplemented'. See the documentation within each method for specific details, including
-# the expected return value
-#
-# Helper Functions:
-# You are permitted to write additional helper functions/methods or use additional instance variables within
-# the `Graph` class or `TMDbAPIUtils` class so long as the originally included methods work as required.
-#
 # Use:
-# The `Graph` class  is used to represent and store the data for the TMDb co-actor network graph.  This class must
+# The `Graph` class  is used to represent and store the data for the TMDb co-actor network graph.  This class
 # also provide some basic analytics, i.e., number of nodes, edges, and nodes with the highest degree.
 #
 # The `TMDbAPIUtils` class is used to retrieve Actor/Movie data using themoviedb.org API.  We have provided a few necessary methods
-# to test your code w/ the API, e.g.: get_move_detail(), get_movie_cast(), get_movie_credits_for_person().  You may add additional
-# methods and instance variables as desired (see Helper Functions).
+# to test your code w/ the API, e.g.: get_move_detail(), get_movie_cast(), get_movie_credits_for_person(). Additional
+# methods and instance variables as desired.
 #
-# The data that you retrieve from the TMDb API is used to build your graph using the Graph class.  After you build your graph using the
+# The data that is retrieved from the TMDb API is used to build the graph using the Graph class.  After you build your graph using the
 # TMDb API data, use the Graph class write_edges_file & write_nodes_file methods to produce the separate nodes and edges
-# .csv files for use with the Argo-Lite graph visualization tool.
-#
+# .csv filesas well as graph.json for use with the index.html file to create a network visualization using D3.js.
+
 # While building the co-actor graph, you will be required to write code to expand the graph by iterating
-# through a portion of the graph nodes and finding similar artists using the TMDb API. We will not grade this code directly
-# but will grade the resulting graph data in your Argo-Lite graph snapshot.
+# through a portion of the graph nodes and finding similar artists using the TMDb API.
 #
 #############################################################################################################################
 

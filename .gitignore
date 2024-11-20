@@ -1,0 +1,5 @@
+# Ignore the .env files
+*.env
+
+# Ignore the env directories
+graph/
