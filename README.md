@@ -36,7 +36,7 @@ Optimized rendering using the Canvas API, suitable for large datasets.
 
 ## Methodology
 **1. Data Collection and Preprocessing**
-The TTMDBAPIUtils class is implemented to fetch all the data from the API
+The `TTMDBAPIUtils` class is implemented to fetch all the data from the API
 Version 3 of the API is used.
 To use the API:
 - Create a TMDB Account and follow the instructions to obtain an authentication token
@@ -50,7 +50,48 @@ The two methods in the class namely:
 # Method for getting all the movies for a specific actor using the actor_id
     def get_movie_credits_for_person(self, person_id: str, vote_avg_threshold: float = None) -> list:
 ```
-Details of these methods are given are included in docstrings within the class
+Details of these methods are included in docstrings within the class
+
+**2. Creating the Network Graph**
+The `Graph` class  is used to represent and store the data for the TMDb co-actor network graph.  This class
+also provide some basic analytics, i.e., number of nodes, edges, and nodes with the highest degree.
+
+**Each node has the following structure:**
+name(name of the actor), id(unique actor id), total_movies(total number of movie credits having a certain rating)
+
+**Each edge has the following structure:**
+source actor id, target actor id, count
+
+**The json structure for the graph is as follows:**
+```json
+{
+    "nodes" : [
+        {"id" : "1234",
+        "name" : "John Doe",
+        "movies" : "3"}
+    ],
+    "links" : [
+        {"source" : "1234",
+        "target" : "6789"} 
+    ]
+}
+```
+
+
+The following are the main methods used in the `Graph` class used to store the nodes and links for the network graph
+
+```python
+# To add nodes to the network graph which do not already exist
+    def add_node(self, id: str, name: str, total_movies: str) -> None:
+
+# To add an edge to the network graph which does not already exist
+    def add_edge(self, source: str, target: str) -> None:
+
+# To create the graph json file
+    def write_graph_to_json(self, path="graph.json") -> None:
+```
+Additional details of all these methods are present as docstrings in the `Graph` class
+
 
 
 
