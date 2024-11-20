@@ -1,3 +1,14 @@
+import http.client
+import json
+
+#############################################################################################################################
+
+# The `TMDbAPIUtils` class is used to retrieve Actor/Movie data using themoviedb.org API.  We have provided a few necessary methods
+# to test your code w/ the API, e.g.: get_move_detail(), get_movie_cast(), get_movie_credits_for_person(). Additional
+# methods and instance variables as desired.
+
+###############################################################################################################################
+
 class TMDBAPIUtils:
 
     # Do not modify
@@ -79,26 +90,15 @@ class TMDBAPIUtils:
         cast_list = []
         if 'cast' in data:
             cast_list = data['cast']
+        
+        cast_final_list = []
+        for x in cast_list:
+            if 'vote_average' in x.keys():
+                cast_final_list.append(x)
 
-        if vote_avg_threshold and cast_list:
-            cast_list = list(filter(lambda x: x['vote_average'] >= vote_avg_threshold, cast_list))
+        if vote_avg_threshold and cast_final_list:
+            cast_final_list = list(filter(lambda x: x['vote_average'] >= vote_avg_threshold, cast_final_list))
 
         mov_credits = [{'id': str(data['id']), 'title': data['title'], 'vote_avg': data['vote_average']} for data in
-                       cast_list]
+                       cast_final_list]
         return mov_credits
-
-    """
-    def __read_data(self, url):
-        domain_name = 'api.themoviedb.org'
-        api_url = 'https://api.themoviedb.org/3/movie/' + movie_id + '/credits/?api_key=' + self.api_key
-
-        request_uri = '/3/movie/' + movie_id + '/credits?api_key=' + self.api_key
-
-        ## Use http client to invoke API
-        payload = {"api_key": self.api_key}
-        conn = http.client.HTTPSConnection(domain_name, 443)
-        conn.request('GET', request_uri)
-        resp = conn.getresponse()
-        decoded_resp = resp.read().decode('UTF-8')
-        data = json.loads(decoded_resp)
-    """

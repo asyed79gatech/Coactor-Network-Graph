@@ -140,4 +140,20 @@ Interact with the visualization to analyze relationships, view detailed informat
 ├── README.md            # Project documentation.
 
 ```
+## How to Use
+Hover over nodes to view key details.
+Drag nodes to rearrange them for better visualization.
+Click a node to select it, highlighting it for analysis.
+Observe relationships through links connecting the nodes.
+
+## Future Enhancements
+Add support for real-time data updates.
+Enhance styling for improved aesthetics.
+Provide downloadable analysis reports directly from the visualization.
+
+## Acknowledgements
+Special thanks to the creators of D3.js and the open-source community for inspiring innovative data visualization solutions.
+
+Feel free to use and modify this project for your own purposes. Contributions are always welcome! 😊
+
 
